@@ -1,5 +1,10 @@
-Build assets into public
+Static Sprockets Demo
+=====================
+
+## Build assets into public
+    
     bundle exec rake assets
 
-Rack up to dev on dynamically generated assets
+## Rack up to dev on dynamically generated assets
+    
     bundle exec rackup
