@@ -3,22 +3,29 @@
   %head
     %script{:src => 'angular.js'}
     %script{:src => 'checklists-controller.js'}
-    %script{:src => 'jquery-1.10.2.js'}
-    %script{:src => 'jquery.list.js'}
-    %script{:src => 'checklist.js'}
+    %script{:src => 'category-container.js'}
+    %script{:src => 'category.js'}
     %link{:rel => 'stylesheet', :href => 'style.css'}
     %title Checklists Demo
   %body
     .checklist{:'ng-controller' => 'ChecklistsController'}
-      .magic{:'ng-click' => 'magic()' }='Make magic happen'
-      %ul
-        %li.header{:'ng-repeat-start' => 'category in categories'}
-          .title
-            .name='{{category.name}}'
-            .description='{{category.description}}'
-          .completion
-            .percentage='{{complete_percentage(category)}}%'
-            .count='{{complete_count(category)}}/{{category.items.length}} complete'
-        %li.item{:'ng-repeat' => 'item in category.items', :'ng-repeat-end' => ''}
-          .description='{{item.description}}'
-          .status='{{item.status}}'
+      .header
+        .title
+          .name='{{activeCategory.name}}'
+          .description='{{activeCategory.description}}'
+        .completion
+          .percentage='{{complete_percentage(activeCategory)}}%'
+          .count='{{complete_count(activeCategory)}}/{{activeCategory.items.length}} complete'
+      .container{:container => ''}
+        .category{:'ng-repeat' => 'category in categories', :class => 'blb'}
+          .header{:category => 'category', :'ng-show' => 'category != activeCategory', :id => '{{category.name}}'}
+            .title
+              .name='{{category.name}}'
+              .description='{{category.description}}'
+            .completion
+              .percentage='{{complete_percentage(category)}}%'
+              .count='{{complete_count(category)}}/{{category.items.length}} complete'
+          %ul
+            %li.item{:'ng-repeat' => 'item in category.items'}
+              .description='{{item.description}}'
+              .status='{{item.status}}'

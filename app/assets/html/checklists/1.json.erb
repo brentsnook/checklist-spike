@@ -1,0 +1,39 @@
+{
+  "categories" : [
+  <% 20.times do |count| %>
+    {
+      "name" : "Category<%= count %>",
+      "description" : "Description lorem ipsum blah blah",
+      "completion" : {
+        "percentage" : 50
+      },
+      "items" : [
+      <% 10.times do |i| %>
+
+        {
+          "description" : "item <%= i %>",
+          "status" : "Y"
+        },
+      <% end %>
+        {
+          "description" : "item last",
+          "status" : "Y"
+        }
+      ]
+    },
+    <% end %>
+    {
+      "name" : "Category Last",
+      "description" : "Description lorem ipsum blah blah",
+      "completion" : {
+        "percentage" : 50
+      },
+      "items" : [
+        {
+          "description" : "item last",
+          "status" : "Y"
+        }
+      ]
+    }
+  ]
+}

@@ -2,45 +2,55 @@
   border: solid 1px lightgray
   border-radius: 5px
   font-family: "arial"
-  -webkit-overflow-scrolling: touch
   padding: 0
   margin: 0
+
+  .container
+    overflow: scroll
+    -webkit-overflow-scrolling: touch
+    height: 300px
+
+  .header
+    background-color: lightgray
+    display: block
+    height: 60px
+    padding-top: 10px
+    padding-left: 20px
+    padding-right: 10px
+
+    .title
+      float: left
+      .name
+        font-size: 1.4em
+        margin-bottom: 5px
+      .description
+        font-size: 0.7em
+    .completion
+      float: right
+      .percentage
+        color: gray
+        font-size: 1.4em
+        text-align: right
+        font-weight: lighter
+      .count
+        font-size: 0.7em
 
   ul
     width: 100%
     display: block
     margin: 0
     padding: 0
-    overflow: hidden
-    -webkit-overflow-scrolling: touch
-    height: 300px
-
-    .header
-      background-color: lightgray
-      display: block
-      height: 60px
-      padding-top: 10px
-      padding-left: 20px
-      padding-right: 10px
-
-      .title
-        float: left
-        .name
-          font-size: 1.4em
-          margin-bottom: 5px
-        .description
-          font-size: 0.7em
-      .completion
-        float: right
-        .percentage
-          color: gray
-          font-size: 1.4em
-          text-align: right
-          font-weight: lighter
-        .count
-          font-size: 0.7em
 
     .item
       border: solid 0 lightgray
       border-top-width: 1px
       list-style-type: none
+      height: 50px
+
+      .status
+        display: block
+        float: right
+        background-color: lightgray
+        height: 30px
+        width: 50px
+        border-radius: 10px
