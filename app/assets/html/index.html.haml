@@ -5,6 +5,8 @@
     %script{:src => 'checklists-controller.js'}
     %script{:src => 'category-container.js'}
     %script{:src => 'category.js'}
+    %script{:src => 'cordova.js'}
+    %script{:src => 'index.js'}
     %link{:rel => 'stylesheet', :href => 'style.css'}
     %title Checklists Demo
   %body
@@ -29,3 +31,6 @@
             %li.item{:'ng-repeat' => 'item in category.items'}
               .description='{{item.description}}'
               .status='{{item.status}}'
+
+    :javascript
+      app.initialize();

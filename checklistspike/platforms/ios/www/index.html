@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html ng-app='checklists'>
+  <head>
+    <script src='angular.js'></script>
+    <script src='checklists-controller.js'></script>
+    <script src='category-container.js'></script>
+    <script src='category.js'></script>
+    <script src='cordova.js'></script>
+    <script src='index.js'></script>
+    <link href='style.css' rel='stylesheet'>
+    <title>Checklists Demo</title>
+  </head>
+  <body>
+    <div class='checklist' ng-controller='ChecklistsController'>
+      <div class='header'>
+        <div class='title'>
+          <div class='name'>{{activeCategory.name}}</div>
+          <div class='description'>{{activeCategory.description}}</div>
+        </div>
+        <div class='completion'>
+          <div class='percentage'>{{complete_percentage(activeCategory)}}%</div>
+          <div class='count'>{{complete_count(activeCategory)}}/{{activeCategory.items.length}} complete</div>
+        </div>
+      </div>
+      <div class='container' container=''>
+        <div class='blb category' ng-repeat='category in categories'>
+          <div category='category' class='header' id='{{category.name}}' ng-show='category != activeCategory'>
+            <div class='title'>
+              <div class='name'>{{category.name}}</div>
+              <div class='description'>{{category.description}}</div>
+            </div>
+            <div class='completion'>
+              <div class='percentage'>{{complete_percentage(category)}}%</div>
+              <div class='count'>{{complete_count(category)}}/{{category.items.length}} complete</div>
+            </div>
+          </div>
+          <ul>
+            <li class='item' ng-repeat='item in category.items'>
+              <div class='description'>{{item.description}}</div>
+              <div class='status'>{{item.status}}</div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <script>
+      app.initialize();
+    </script>
+  </body>
+</html>

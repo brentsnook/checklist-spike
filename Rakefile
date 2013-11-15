@@ -7,7 +7,7 @@ require_relative './sprockets_app'
 
 task :default => :assets
 
-PUBLIC_PATH = './public'
+PUBLIC_PATH = './checklistspike/www/'
 
 # This sprockets task provides the assets task.
 Rake::SprocketsTask.new do |t|
